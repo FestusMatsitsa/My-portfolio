@@ -151,10 +151,10 @@ for i, cert in enumerate(certificates):
                 
                 # Map certificates to their PDF files
                 certificate_pdfs = {
-                    "Data Science Job Simulation": "attached_assets\BCG DATA SCIENCE completion_certificate.pdf",
-                    "GenAI Job Simulation": "attached_assets\BCG GEN AI_completion_certificate.pdf", 
-                    "Data Science & Analytics": "attached_assets\hp certificate.pdf",
-                    "Applied Data Science Lab": "attached_assets\AppliedDataScienceLab20250803-30-xbd0sf.pdf"
+                    "Data Science Job Simulation": "attached_assets/BCG DATA SCIENCE completion_certificate.pdf",
+                    "GenAI Job Simulation": "attached_assets/BCG GEN AI_completion_certificate.pdf", 
+                    "Data Science & Analytics": "attached_assets/hp certificate.pdf",
+                    "Applied Data Science Lab": "attached_assets/AppliedDataScienceLab20250803-30-xbd0sf.pdf"
                 }
                 
                 # Check for exact match first
