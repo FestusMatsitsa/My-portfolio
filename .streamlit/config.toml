@@ -13,3 +13,8 @@ textColor = "#fafafa"
 
 [browser]
 gatherUsageStats = false
+
+[html]
+metaTags = [
+    "<meta name='google-site-verification' content='gCTDmrgKgrPw_5Wh9EKQQWsDxmvSAxzzeIyps7MWC5A' />"
+]
