@@ -4,6 +4,14 @@ import os
 from io import BytesIO
 from PIL import Image
 
+# Inject Google site verification meta tag
+st.markdown(
+    """
+    <meta name="google-site-verification" content="gCTDmrgKgrPw_5Wh9EKQQWsDxmvSAxzzeIyps7MWC5A" />
+    """,
+    unsafe_allow_html=True
+)
+
 # Page configuration
 st.set_page_config(
     page_title="Festus Matsitsa Bombo - Data Scientist",
