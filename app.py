@@ -4,6 +4,13 @@ import os
 from io import BytesIO
 from PIL import Image
 
+# Page configuration
+st.set_page_config(
+    page_title="Festus Matsitsa Bombo - Data Scientist",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 # Inject Google site verification meta tag
 st.markdown(
     """
@@ -12,13 +19,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Page configuration
-st.set_page_config(
-    page_title="Festus Matsitsa Bombo - Data Scientist",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # Custom CSS for dark mode styling
 st.markdown("""
