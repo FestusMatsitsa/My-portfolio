@@ -134,12 +134,25 @@ def main():
     
     # Profile image section
     col1, col2, col3 = st.columns([1, 2, 1])
-    
     with col2:
         if os.path.exists("assets/profile.png"):
             image = Image.open("assets/profile.png")
-            st.image(image, width=300, caption="Festus Matsitsa Bombo - Data Scientist")
+            buffered = BytesIO()
+            image.save(buffered, format="PNG")
+            img_b64 = base64.b64encode(buffered.getvalue()).decode()
+            st.markdown(
+                f"""
+                <div style="display: flex; justify-content: center;">
+                    <img src="data:image/png;base64,{img_b64}" width="300" />
+                </div>
+                <p style="text-align: center; opacity: 0.8; font-size: 0.9rem;">
+                    Festus Matsitsa Bombo - Data Scientist
+                </p>
+                """,
+                unsafe_allow_html=True
+            )
     
+
     # Navigation info
     st.sidebar.title("🧭 Navigation")
     st.sidebar.info("Use the pages in the sidebar to explore different sections of the portfolio.")
