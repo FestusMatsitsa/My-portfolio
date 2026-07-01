@@ -7,7 +7,7 @@ from PIL import Image
 # Page configuration
 st.set_page_config(
     page_title="Festus Matsitsa Bombo - Data Scientist",
-    page_icon="🚀",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="auto"
 )
@@ -140,29 +140,7 @@ st.markdown("""
         font-weight: 500;
     }
     
-    /* Navigation Styles */
-    .nav-container {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        padding: 1.5rem;
-        border-radius: 15px;
-        margin-bottom: 1.5rem;
-        border: 2px solid rgba(0, 212, 170, 0.3);
-        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.1);
-    }
-    
-    .nav-title {
-        color: #00d4aa;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.8rem;
-    }
-    
-    .nav-description {
-        color: #fafafa;
-        opacity: 0.85;
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
+    /* Navigation Styles - Removed */
     
     /* Resume Button */
     .resume-button-container {
@@ -411,15 +389,15 @@ def create_download_link():
         with open("assets/resume.pdf", "rb") as file:
             pdf_data = file.read()
             b64 = base64.b64encode(pdf_data).decode()
-            href = f'<div class="resume-button-container"><a href="data:application/pdf;base64,{b64}" download="Festus_Bombo_Resume.pdf" class="resume-download-link">📄 Download Resume (PDF)</a></div>'
+            href = f'<div class="resume-button-container"><a href="data:application/pdf;base64,{b64}" download="Festus_Bombo_Resume.pdf" class="resume-download-link">Download Resume (PDF)</a></div>'
             return href
     except FileNotFoundError:
-        return '<div class="resume-button-container"><p style="color: #ff6b6b;">📄 Resume file not available for download</p></div>'
+        return '<div class="resume-button-container"><p style="color: #ff6b6b;">Resume file not available for download</p></div>'
 
 def main():
     # Header
     st.markdown('<h1 class="main-header">FESTUS MATSITSA BOMBO</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">🚀 DATA SCIENTIST</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">DATA SCIENTIST</p>', unsafe_allow_html=True)
     
     # Profile image section with enhanced border
     col1, col2, col3 = st.columns([1, 2, 1], gap="large")
@@ -436,61 +414,26 @@ def main():
                         <img src="data:image/png;base64,{img_b64}" alt="Festus Matsitsa Bombo" />
                     </div>
                 </div>
-                <p class="profile-label">✨ Festus Matsitsa Bombo - Data Scientist</p>
+                <p class="profile-label">Festus Matsitsa Bombo - Data Scientist</p>
                 """,
                 unsafe_allow_html=True
             )
     
-    # Improved Sidebar Navigation
+    # Sidebar Resume Download
     with st.sidebar:
-        st.markdown('<div class="nav-container">', unsafe_allow_html=True)
-        st.markdown('<div class="nav-title">🧭 Navigation Hub</div>', unsafe_allow_html=True)
-        st.markdown('<div class="nav-description">Explore the sections below to discover my experience, skills, projects, and more!</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        st.sidebar.markdown("---")
-        
-        # Quick Links
-        st.sidebar.markdown("### 📑 Quick Links")
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("💼 Experience", use_container_width=True):
-                st.switch_page("pages/0_Experience.py")
-            if st.button("🎯 Skills", use_container_width=True):
-                st.switch_page("pages/1_skills.py")
-            if st.button("🎓 Certificates", use_container_width=True):
-                st.switch_page("pages/2_Certificates.py")
-        
-        with col2:
-            if st.button("🔬 Toolkit", use_container_width=True):
-                st.switch_page("pages/3_Data_Science_Toolkit.py")
-            if st.button("🚀 Projects", use_container_width=True):
-                st.switch_page("pages/4_Projects.py")
-            if st.button("📧 Contact", use_container_width=True):
-                st.switch_page("pages/5_Contact_Me.py")
-        
-        st.sidebar.markdown("---")
-        
-        # Resume Download in Sidebar
-        st.sidebar.markdown("### 📄 Resume")
-        st.sidebar.markdown(create_download_link(), unsafe_allow_html=True)
-        
-        st.sidebar.markdown("---")
-        
-        # Quick Info
-        st.sidebar.markdown("### 🌟 Quick Info")
-        st.sidebar.info("""
-        📍 **Location**: Kenya  
-        🎓 **Education**: BSc Computer Science  
-        💼 **Status**: Freelance Data Scientist  
-        ⭐ **Experience**: 3+ Years  
-        🌐 **Available for**: Remote & On-site  
-        """)
+        st.markdown(create_download_link(), unsafe_allow_html=True)
+    
+    st.markdown("---")
+
+    # Resume Download Section
+    st.markdown('<div style="text-align: center; margin: 2rem 0;">', unsafe_allow_html=True)
+    st.markdown(create_download_link(), unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
     
     st.markdown("---")
 
     # Certificate Gallery Section
-    st.markdown("### 🎓 Professional Certificates")
+    st.markdown("### Professional Certificates")
     
     # Create certificate cards
     certificates = [
@@ -575,8 +518,8 @@ def main():
     with col2:
         st.markdown("""
         <div style="text-align: center; margin: 1rem 0;">
-            <p>🔍 <strong>Want to see detailed certificate information?</strong></p>
-            <p>Visit the <strong>📋 Certificates</strong> page for verification codes, detailed descriptions, and skills acquired.</p>
+            <p><strong>Want to see detailed certificate information?</strong></p>
+            <p>Visit the <strong>Certificates</strong> page for verification codes, detailed descriptions, and skills acquired.</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -584,7 +527,7 @@ def main():
     col1, col2 = st.columns([2, 1], gap="medium")
     
     with col1:
-        st.markdown('<h2 class="section-header">👨‍💻 About Me</h2>', unsafe_allow_html=True)
+        st.markdown('<h2 class="section-header">About Me</h2>', unsafe_allow_html=True)
         
         st.markdown("""
         <div class="highlight-box">
@@ -599,58 +542,58 @@ def main():
         </div>
         """, unsafe_allow_html=True)
         
-        st.markdown('<h2 class="section-header">🎯 Core Competencies</h2>', unsafe_allow_html=True)
+        st.markdown('<h2 class="section-header">Core Competencies</h2>', unsafe_allow_html=True)
         
         col_a, col_b = st.columns(2, gap="small")
         
         with col_a:
             st.markdown("""
             **Technical Skills:**
-            - 🐍 Python & R Programming
-            - 📊 Data Visualization (Tableau, Power BI)
-            - 🤖 Machine Learning & Deep Learning
-            - 📈 Statistical Analysis & Modeling
-            - 🗄️ SQL & Database Management
+            - Python & R Programming
+            - Data Visualization (Tableau, Power BI)
+            - Machine Learning & Deep Learning
+            - Statistical Analysis & Modeling
+            - SQL & Database Management
             """)
         
         with col_b:
             st.markdown("""
             **Soft Skills:**
-            - 🧠 Analytical Thinking
-            - 🔍 Attention to Detail
-            - 🗣️ Communication & Collaboration
-            - ⚡ Adaptability & Innovation
-            - 📋 Project Management
+            - Analytical Thinking
+            - Attention to Detail
+            - Communication & Collaboration
+            - Adaptability & Innovation
+            - Project Management
             """)
     
     with col2:
-        st.markdown('<h2 class="section-header">📞 Contact</h2>', unsafe_allow_html=True)
+        st.markdown('<h2 class="section-header">Contact</h2>', unsafe_allow_html=True)
         st.markdown("""
         <div class="contact-info">
-        <p><strong>🏫 Education:</strong><br>
+        <p><strong>Education:</strong><br>
         BSc Computer Science<br>
         Pwani University<br>
         Aug 2023 - Sep 2027</p>
         
-        <p><strong>💼 Current Status:</strong><br>
+        <p><strong>Current Status:</strong><br>
         Freelance Data Scientist<br>
         Fiverr & Upwork</p>
         
-        <p><strong>🌟 Experience:</strong><br>
+        <p><strong>Experience:</strong><br>
         3+ years in Data Science<br>
         Specialized in client solutions</p>
         </div>
         """, unsafe_allow_html=True)
     
     # Recent Projects Section
-    st.markdown('<h2 class="section-header">🚀 Featured Projects</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="section-header">Featured Projects</h2>', unsafe_allow_html=True)
     
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2, gap="medium")
     
     with col1:
         st.markdown("""
         <div class="project-card">
-        <h4>📊 Customer Segmentation Analysis</h4>
+        <h4>Customer Segmentation Analysis</h4>
         <p>Developed a comprehensive customer segmentation model using K-means clustering and RFM analysis for an e-commerce client, resulting in 25% increase in targeted marketing effectiveness.</p>
         <div>
         <span class="tech-badge">Python</span>
@@ -663,7 +606,7 @@ def main():
         
         st.markdown("""
         <div class="project-card">
-        <h4>🤖 Sales Forecasting Model</h4>
+        <h4>Sales Forecasting Model</h4>
         <p>Built time series forecasting models using ARIMA and Random Forest to predict monthly sales with 92% accuracy, helping a retail client optimize inventory management.</p>
         <div>
         <span class="tech-badge">Python</span>
@@ -677,7 +620,7 @@ def main():
     with col2:
         st.markdown("""
         <div class="project-card">
-        <h4>📈 Financial Risk Assessment</h4>
+        <h4>Financial Risk Assessment</h4>
         <p>Developed a credit risk assessment model using logistic regression and gradient boosting, achieving 88% accuracy in predicting loan defaults for a fintech startup.</p>
         <div>
         <span class="tech-badge">Python</span>
@@ -690,7 +633,7 @@ def main():
         
         st.markdown("""
         <div class="project-card">
-        <h4>🔍 Market Analysis Dashboard</h4>
+        <h4>Market Analysis Dashboard</h4>
         <p>Created an interactive dashboard analyzing market trends and competitor performance using web scraping and data visualization, providing real-time insights for strategic decision-making.</p>
         <div>
         <span class="tech-badge">Python</span>
@@ -702,11 +645,11 @@ def main():
         """, unsafe_allow_html=True)
     
     # Contact & Opportunities Section
-    st.markdown('<h2 class="section-header">💼 Open for Opportunities</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="section-header">Open for Opportunities</h2>', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="contact-section">
-    <h3 style="color: #00d4aa; margin-bottom: 1.5rem; text-align: center;">🚀 Ready to Collaborate</h3>
+    <h3 style="color: #00d4aa; margin-bottom: 1.5rem; text-align: center;">Ready to Collaborate</h3>
     
     <div style="text-align: center; margin-bottom: 2rem;">
     <p style="font-size: 1.1rem; margin-bottom: 1rem;">I'm actively seeking opportunities in:</p>
@@ -719,20 +662,20 @@ def main():
     </div>
     
     <div style="text-align: center; margin-bottom: 2rem;">
-    <h4 style="color: #00d4aa; margin-bottom: 1rem;">📞 Contact Information</h4>
+    <h4 style="color: #00d4aa; margin-bottom: 1rem;">Contact Information</h4>
     <div style="margin-bottom: 1rem;">
     <a href="mailto:fmatsitsa@gmail.com" class="email-link" style="margin: 0.5rem;">
-    📧 fmatsitsa@gmail.com
+    fmatsitsa@gmail.com
     </a>
     </div>
     <div style="margin-bottom: 1rem;">
     <a href="tel:+254702816978" class="email-link" style="margin: 0.5rem;">
-    📱 +254 702 816 978
+    +254 702 816 978
     </a>
     </div>
     <div>
     <a href="https://github.com/FestusMatsitsa/FestusMatsitsa" target="_blank" class="email-link" style="margin: 0.5rem;">
-    🔗 GitHub Portfolio
+    GitHub Portfolio
     </a>
     </div>
     </div>
@@ -746,15 +689,15 @@ def main():
     
     # Call to action
     st.markdown("---")
-    st.markdown("### 🔧 Explore My Data Science Toolkit")
+    st.markdown("### Explore My Data Science Toolkit")
     st.info("Navigate to the **Data Science Toolkit** page to see interactive tools for data analysis, visualization, and machine learning!")
     
     # Footer
     st.markdown("---")
     st.markdown("""
-    <div style='text-align: center; color: #fafafa; opacity: 0.8;'>
-    <p>© 2024 Festus Matsitsa Bombo | Data Scientist Portfolio</p>
-    <p>Committed to continuous learning, innovation, and delivering high-impact, scalable analytical solutions.</p>
+    <div style='text-align: center; color: #fafafa; opacity: 0.8; padding: 2rem 1rem;'>
+    <p style="margin-bottom: 0.5rem;">© 2024 Festus Matsitsa Bombo | Data Scientist Portfolio</p>
+    <p style="margin: 0;">Committed to continuous learning, innovation, and delivering high-impact, scalable analytical solutions</p>
     </div>
     """, unsafe_allow_html=True)
 
