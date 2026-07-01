@@ -5,11 +5,11 @@ import os
 
 st.set_page_config(
     page_title="Certificates - Festus Matsitsa",
-    page_icon="🎓",
+    page_icon="",
     layout="wide"
 )
 
-st.title("🎓 Professional Certificates & Achievements")
+st.title("Professional Certificates & Achievements")
 
 # Introduction
 st.markdown("""
@@ -115,11 +115,11 @@ if st.session_state.show_cert:
 
 # Display certificates
 for i, cert in enumerate(certificates):
-    with st.expander(f"🏆 {cert['title']} - {cert['organization']}", expanded=(i==0)):
+    with st.expander(f"{cert['title']} - {cert['organization']}", expanded=(i==0)):
         cert_col1, cert_col2 = st.columns([2, 1])
         
         with cert_col1:
-            st.markdown(f"### 📋 Certificate Details")
+            st.markdown(f"### Certificate Details")
             st.markdown(f"**Organization:** {cert['organization']}")
             st.markdown(f"**Date Completed:** {cert['date']}")
             st.markdown(f"**Duration:** {cert['duration']}")
@@ -141,7 +141,7 @@ for i, cert in enumerate(certificates):
                 st.image(cert['image_path'], caption=f"Click to view {cert['title']}", use_container_width=True)
                 
                 # Add a button to view in full size
-                if st.button(f"🔍 View Full Certificate", key=f"view_{cert['title'].replace(' ', '_')}"):
+                if st.button(f"View Full Certificate", key=f"view_{cert['title'].replace(' ', '_')}"):
                     st.session_state.show_cert = cert
                     st.rerun()
                     
@@ -182,7 +182,6 @@ for i, cert in enumerate(certificates):
                         background: linear-gradient(135deg, #4ECDC4, #45B7D1);
                         color: white;
                     ">
-                        <h4>📄</h4>
                         <p><strong>PDF Certificate Available</strong></p>
                         <small>{cert['organization']}</small>
                     </div>
@@ -192,7 +191,7 @@ for i, cert in enumerate(certificates):
                     with open(pdf_path, "rb") as pdf_file:
                         pdf_bytes = pdf_file.read()
                         st.download_button(
-                            label="📥 Download Certificate PDF",
+                            label="Download Certificate PDF",
                             data=pdf_bytes,
                             file_name=f"{cert['title'].replace(' ', '_')}_Certificate.pdf",
                             mime="application/pdf",
@@ -216,7 +215,7 @@ for i, cert in enumerate(certificates):
 
 # Summary statistics
 st.markdown("---")
-st.markdown("## 📊 Certification Summary")
+st.markdown("## Certification Summary")
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -240,7 +239,7 @@ with col4:
 
 # Skills gained from certifications
 st.markdown("---")
-st.markdown("## 🛠️ Skills Acquired Through Certifications")
+st.markdown("## Skills Acquired Through Certifications")
 
 all_skills = []
 for cert in certificates:
@@ -274,7 +273,7 @@ with skill_col3:
 
 # Learning timeline
 st.markdown("---")
-st.markdown("## 📅 Learning Timeline")
+st.markdown("## Learning Timeline")
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -336,7 +335,7 @@ st.plotly_chart(fig, use_container_width=True)
 # Call to action
 st.markdown("---")
 st.markdown("""
-### 🎯 Continuous Learning
+###Continuous Learning
 
 I am committed to continuous professional development and regularly pursue new certifications 
 and learning opportunities in emerging technologies and methodologies. Stay tuned for more 
