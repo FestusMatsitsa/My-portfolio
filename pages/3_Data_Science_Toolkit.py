@@ -15,7 +15,7 @@ from scipy import stats
 import io
 import base64
 
-st.set_page_config(page_title="Data Science Toolkit", page_icon="🔧", layout="wide")
+st.set_page_config(page_title="Data Science Toolkit", page_icon="", layout="wide")
 
 # Custom CSS for dark mode
 st.markdown("""
@@ -85,7 +85,7 @@ def generate_sample_data():
 
 def perform_eda(df):
     """Perform Exploratory Data Analysis"""
-    st.subheader("📊 Exploratory Data Analysis")
+    st.subheader("Exploratory Data Analysis")
     
     # Basic statistics
     col1, col2 = st.columns(2)
@@ -110,7 +110,7 @@ def perform_eda(df):
                      title="Missing Values by Column")
         st.plotly_chart(fig, use_container_width=True)
     else:
-        st.success("✅ No missing values found in the dataset!")
+        st.success("No missing values found in the dataset!")
     
     # Descriptive statistics
     st.write("**Descriptive Statistics:**")
@@ -129,7 +129,7 @@ def perform_eda(df):
 
 def create_visualizations(df):
     """Create various data visualizations"""
-    st.subheader("📈 Data Visualization")
+    st.subheader("Data Visualization")
     
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     categorical_cols = df.select_dtypes(include=['object']).columns.tolist()
@@ -187,7 +187,7 @@ def create_visualizations(df):
 
 def feature_engineering(df):
     """Perform feature engineering operations"""
-    st.subheader("🔧 Feature Engineering")
+    st.subheader("Feature Engineering")
     
     # Feature scaling
     st.write("**Feature Scaling:**")
@@ -206,7 +206,7 @@ def feature_engineering(df):
                     df_scaled = df.copy()
                     df_scaled[cols_to_scale] = scaler.fit_transform(df[cols_to_scale])
                     
-                    st.success(f"✅ Applied Standard Scaling to {len(cols_to_scale)} columns")
+                    st.success(f"Applied Standard Scaling to {len(cols_to_scale)} columns")
                     st.write("**Before and After Scaling Comparison:**")
                     
                     col1, col2 = st.columns(2)
@@ -223,7 +223,7 @@ def feature_engineering(df):
     if 'age' in df.columns and 'income' in df.columns:
         if st.button("Create Age-Income Ratio Feature"):
             df['age_income_ratio'] = df['age'] / df['income'] * 1000
-            st.success("✅ Created age_income_ratio feature")
+            st.success("Created age_income_ratio feature")
             st.write("New feature statistics:")
             st.write(df['age_income_ratio'].describe())
     
@@ -240,7 +240,7 @@ def feature_engineering(df):
             if encoding_method == "Label Encoding":
                 le = LabelEncoder()
                 df[f"{col_to_encode}_encoded"] = le.fit_transform(df[col_to_encode])
-                st.success(f"✅ Applied Label Encoding to {col_to_encode}")
+                st.success(f"Applied Label Encoding to {col_to_encode}")
                 
                 # Show mapping
                 mapping = dict(zip(le.classes_, le.transform(le.classes_)))
@@ -248,18 +248,18 @@ def feature_engineering(df):
             
             elif encoding_method == "One-Hot Encoding":
                 encoded_df = pd.get_dummies(df[col_to_encode], prefix=col_to_encode)
-                st.success(f"✅ Applied One-Hot Encoding to {col_to_encode}")
+                st.success(f"Applied One-Hot Encoding to {col_to_encode}")
                 st.write(f"Created {encoded_df.shape[1]} new binary columns")
                 st.dataframe(encoded_df.head())
 
 def machine_learning_models(df):
     """Build and evaluate machine learning models"""
-    st.subheader("🤖 Machine Learning Models")
+    st.subheader("Machine Learning Models")
     
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     
     if len(numeric_cols) < 2:
-        st.warning("⚠️ Need at least 2 numeric columns for machine learning")
+        st.warning("Need at least 2 numeric columns for machine learning")
         return
     
     # Model type selection
@@ -401,12 +401,12 @@ def machine_learning_models(df):
 
 def statistical_analysis(df):
     """Perform statistical analysis"""
-    st.subheader("📈 Statistical Analysis")
+    st.subheader("Statistical Analysis")
     
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     
     if len(numeric_cols) < 2:
-        st.warning("⚠️ Need at least 2 numeric columns for statistical analysis")
+        st.warning("Need at least 2 numeric columns for statistical analysis")
         return
     
     # Statistical tests
@@ -435,9 +435,9 @@ def statistical_analysis(df):
                 
                 # Interpretation
                 if p_value < 0.05:
-                    st.success(f"✅ Significant correlation found (p < 0.05)")
+                    st.success(f"Significant correlation found (p < 0.05)")
                 else:
-                    st.warning(f"⚠️ No significant correlation (p >= 0.05)")
+                    st.warning(f"No significant correlation (p >= 0.05)")
                 
                 # Scatter plot with regression line
                 fig = px.scatter(data_clean, x=var1, y=var2, 
@@ -462,9 +462,9 @@ def statistical_analysis(df):
                 
                 # Interpretation
                 if p_value < 0.05:
-                    st.warning(f"⚠️ Data is not normally distributed (p < 0.05)")
+                    st.warning(f"Data is not normally distributed (p < 0.05)")
                 else:
-                    st.success(f"✅ Data appears to be normally distributed (p >= 0.05)")
+                    st.success(f"Data appears to be normally distributed (p >= 0.05)")
                 
                 # Q-Q plot
                 fig = go.Figure()
@@ -480,7 +480,7 @@ def statistical_analysis(df):
                 st.plotly_chart(fig, use_container_width=True)
 
 def main():
-    st.title("🔧 Data Science Toolkit")
+    st.title("Data Science Toolkit")
     st.markdown("---")
     
     st.markdown("""
@@ -494,7 +494,7 @@ def main():
     """)
     
     # Sidebar for navigation
-    st.sidebar.title("🔧 Toolkit Navigation")
+    st.sidebar.title("Toolkit Navigation")
     toolkit_section = st.sidebar.selectbox("Select Tool:", [
         "Data Upload & Preview",
         "Exploratory Data Analysis", 
@@ -505,7 +505,7 @@ def main():
     ])
     
     # Data upload section
-    st.header("📁 Data Upload & Management")
+    st.header("Data Upload & Management")
     
     data_source = st.radio("Select Data Source:", 
                           ["Upload CSV File", "Use Sample Dataset", "Enter Data Manually"])
@@ -517,14 +517,14 @@ def main():
         if uploaded_file is not None:
             try:
                 df = pd.read_csv(uploaded_file)
-                st.success(f"✅ Successfully loaded {df.shape[0]} rows and {df.shape[1]} columns")
+                st.success(f"Successfully loaded {df.shape[0]} rows and {df.shape[1]} columns")
             except Exception as e:
-                st.error(f"❌ Error loading file: {str(e)}")
+                st.error(f"Error loading file: {str(e)}")
     
     elif data_source == "Use Sample Dataset":
         if st.button("Generate Sample Dataset"):
             df = generate_sample_data()
-            st.success("✅ Sample dataset generated successfully!")
+            st.success("Sample dataset generated successfully!")
             st.info("This is a synthetic dataset for loan approval prediction with features like age, income, credit score, etc.")
     
     elif data_source == "Enter Data Manually":
@@ -532,7 +532,7 @@ def main():
     
     # Display data preview
     if df is not None:
-        st.subheader("📊 Data Preview")
+        st.subheader("Data Preview")
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -549,7 +549,7 @@ def main():
         st.dataframe(df.head(10))
         
         # Column information
-        with st.expander("📋 Column Information"):
+        with st.expander("Column Information"):
             col_info = pd.DataFrame({
                 'Column': df.columns,
                 'Data Type': df.dtypes,
@@ -563,7 +563,7 @@ def main():
         st.markdown("---")
         
         if toolkit_section == "Data Upload & Preview":
-            st.info("✅ Data loaded successfully! Select other tools from the sidebar to analyze your data.")
+            st.info("Data loaded successfully! Select other tools from the sidebar to analyze your data.")
         
         elif toolkit_section == "Exploratory Data Analysis":
             perform_eda(df)
@@ -581,7 +581,7 @@ def main():
             statistical_analysis(df)
     
     else:
-        st.info("👆 Please upload a CSV file or generate a sample dataset to get started!")
+        st.info("Please upload a CSV file or generate a sample dataset to get started!")
     
     # Footer
     st.markdown("---")
