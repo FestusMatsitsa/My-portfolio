@@ -84,6 +84,8 @@ st.markdown("""
     
     .profile-image-border {
         position: relative;
+        width: min(220px, 70vw);
+        aspect-ratio: 1 / 1;
         border-radius: 50%;
         overflow: hidden;
         box-shadow: 
@@ -128,7 +130,10 @@ st.markdown("""
     .profile-image-border img {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
+        /* raise the image slightly so the face sits centrally in the circle */
+        object-position: center 38%;
     }
     
     .profile-label {
