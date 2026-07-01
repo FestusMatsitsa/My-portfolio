@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="Projects Portfolio",
-    page_icon="📊",
+    page_icon="",
     layout="wide"
 )
 
@@ -42,7 +42,7 @@ def create_sample_data():
 
 def sales_analysis_project():
     """Sales Analysis and Forecasting Project"""
-    st.header("📈 Sales Analysis & Forecasting")
+    st.header("Sales Analysis & Forecasting")
     
     st.markdown("""
     **Project Overview:**
@@ -61,7 +61,7 @@ def sales_analysis_project():
     sales_data, _, _ = create_sample_data()
     
     # Time series analysis
-    st.subheader("📅 Sales Trends Over Time")
+    st.subheader("Sales Trends Over Time")
     
     # Aggregate daily sales
     daily_sales = sales_data.groupby('date')['sales'].sum().reset_index()
@@ -72,7 +72,7 @@ def sales_analysis_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Regional analysis
-    st.subheader("🗺️ Regional Performance")
+    st.subheader("Regional Performance")
     
     regional_sales = sales_data.groupby('region')['sales'].agg(['sum', 'mean', 'count']).reset_index()
     regional_sales.columns = ['Region', 'Total Sales', 'Average Sales', 'Number of Transactions']
@@ -90,7 +90,7 @@ def sales_analysis_project():
         st.plotly_chart(fig, use_container_width=True)
     
     # Product analysis
-    st.subheader("📦 Product Performance")
+    st.subheader("Product Performance")
     
     product_sales = sales_data.groupby('product')['sales'].agg(['sum', 'mean']).reset_index()
     product_sales.columns = ['Product', 'Total Sales', 'Average Sales']
@@ -100,7 +100,7 @@ def sales_analysis_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Monthly trends
-    st.subheader("📊 Monthly Sales Patterns")
+    st.subheader("Monthly Sales Patterns")
     
     sales_data['month'] = sales_data['date'].dt.month
     monthly_sales = sales_data.groupby('month')['sales'].sum().reset_index()
@@ -111,7 +111,7 @@ def sales_analysis_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Key insights
-    st.subheader("🎯 Key Insights")
+    st.subheader("Key Insights")
     total_sales = sales_data['sales'].sum()
     avg_daily_sales = sales_data.groupby('date')['sales'].sum().mean()
     best_region = regional_sales.loc[regional_sales['Total Sales'].idxmax(), 'Region']
@@ -133,7 +133,7 @@ def sales_analysis_project():
 
 def customer_segmentation_project():
     """Customer Segmentation Project"""
-    st.header("👥 Customer Segmentation Analysis")
+    st.header("Customer Segmentation Analysis")
     
     st.markdown("""
     **Project Overview:**
@@ -152,7 +152,7 @@ def customer_segmentation_project():
     _, customer_data, _ = create_sample_data()
     
     # Customer demographics
-    st.subheader("👤 Customer Demographics")
+    st.subheader("Customer Demographics")
     
     col1, col2 = st.columns(2)
     
@@ -168,7 +168,7 @@ def customer_segmentation_project():
         st.plotly_chart(fig, use_container_width=True)
     
     # Income vs Spending analysis
-    st.subheader("💰 Income vs Spending Analysis")
+    st.subheader("Income vs Spending Analysis")
     
     fig = px.scatter(customer_data, x='income', y='spending_score', 
                      color='gender', title="Income vs Spending Score",
@@ -176,7 +176,7 @@ def customer_segmentation_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Age groups analysis
-    st.subheader("👶👦👨👴 Age Group Analysis")
+    st.subheader("Age Group Analysis")
     
     customer_data['age_group'] = pd.cut(customer_data['age'], 
                                        bins=[0, 25, 35, 50, 100], 
@@ -192,7 +192,7 @@ def customer_segmentation_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Customer segments
-    st.subheader("🎯 Customer Segments")
+    st.subheader("Customer Segments")
     
     # Create segments based on spending and income
     customer_data['segment'] = 'Low Value'
@@ -224,7 +224,7 @@ def customer_segmentation_project():
 
 def stock_prediction_project():
     """Stock Price Prediction Project"""
-    st.header("📈 Stock Price Analysis & Prediction")
+    st.header("Stock Price Analysis & Prediction")
     
     st.markdown("""
     **Project Overview:**
@@ -248,7 +248,7 @@ def stock_prediction_project():
     stock_data['daily_return'] = stock_data['price'].pct_change()
     
     # Price trends
-    st.subheader("📊 Stock Price Trends")
+    st.subheader("Stock Price Trends")
     
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=stock_data['date'], y=stock_data['price'], 
@@ -263,7 +263,7 @@ def stock_prediction_project():
     st.plotly_chart(fig, use_container_width=True)
     
     # Volatility analysis
-    st.subheader("📉 Volatility Analysis")
+    st.subheader("Volatility Analysis")
     
     col1, col2 = st.columns(2)
     
@@ -278,7 +278,7 @@ def stock_prediction_project():
         st.plotly_chart(fig, use_container_width=True)
     
     # Performance metrics
-    st.subheader("📈 Performance Metrics")
+    st.subheader("Performance Metrics")
     
     total_return = (stock_data['price'].iloc[-1] / stock_data['price'].iloc[0] - 1) * 100
     volatility_annual = stock_data['daily_return'].std() * np.sqrt(252) * 100
@@ -296,11 +296,11 @@ def stock_prediction_project():
         st.metric("Max Drawdown", f"{max_drawdown:.2f}%")
 
 def main():
-    st.title("📊 Data Science Projects Portfolio")
+    st.title("Data Science Projects Portfolio")
     st.markdown("Showcase of various data science projects demonstrating different analytical techniques")
     
     # Project selection
-    project_tabs = st.tabs(["📈 Sales Analysis", "👥 Customer Segmentation", "📊 Stock Analysis"])
+    project_tabs = st.tabs(["Sales Analysis", "Customer Segmentation", "Stock Analysis"])
     
     with project_tabs[0]:
         sales_analysis_project()
@@ -313,13 +313,13 @@ def main():
     
     # Additional projects section
     st.markdown("---")
-    st.subheader("🚀 Additional Project Ideas")
+    st.subheader("Additional Project Ideas")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown("""
-        **📊 Web Analytics Dashboard**
+        **Web Analytics Dashboard**
         - User behavior analysis
         - Conversion funnel optimization
         - A/B testing framework
@@ -328,7 +328,7 @@ def main():
     
     with col2:
         st.markdown("""
-        **🔍 Fraud Detection System**
+        **Fraud Detection System**
         - Anomaly detection algorithms
         - Risk scoring models
         - Real-time alerting
@@ -337,7 +337,7 @@ def main():
     
     with col3:
         st.markdown("""
-        **🤖 Recommendation Engine**
+        **Recommendation Engine**
         - Collaborative filtering
         - Content-based recommendations
         - Hybrid approaches
