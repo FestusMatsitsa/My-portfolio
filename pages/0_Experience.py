@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import datetime
 
-st.set_page_config(page_title="Experience - Festus Bombo", page_icon="💼", layout="wide")
+st.set_page_config(page_title="Experience - Festus Bombo", page_icon="", layout="wide")
 
 # Custom CSS for dark mode
 st.markdown("""
@@ -73,11 +73,11 @@ def calculate_duration(start_date, end_date="Present"):
         return f"{remaining_months} month{'s' if remaining_months > 1 else ''}"
 
 def main():
-    st.title("💼 Professional Experience")
+    st.title("Professional Experience")
     st.markdown("---")
     
     # Experience Timeline
-    st.header("🚀 Career Journey")
+    st.header("Career Journey")
     
     # Fiverr Experience
     st.markdown("""
@@ -116,12 +116,12 @@ def main():
     """.format(calculate_duration("Jun 2022")), unsafe_allow_html=True)
     
     # Skills developed through experience
-    st.header("🎯 Skills Developed Through Experience")
+    st.header("Skills Developed Through Experience")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("💻 Technical Expertise")
+        st.subheader("Technical Expertise")
         skills_technical = {
             "Python Programming": 95,
             "Data Analysis": 90,
@@ -140,7 +140,7 @@ def main():
             st.write("")
     
     with col2:
-        st.subheader("🤝 Professional Skills")
+        st.subheader("Professional Skills")
         skills_professional = {
             "Client Communication": 92,
             "Project Management": 88,
@@ -159,11 +159,11 @@ def main():
             st.write("")
     
     # Education Section
-    st.header("🎓 Education Background")
+    st.header("Education Background")
     
     st.markdown("""
     <div class="education-card">
-        <div class="position-title">🎓 Bachelor of Science in Computer Science</div>
+        <div class="position-title">Bachelor of Science in Computer Science</div>
         <div class="company-name">Pwani University</div>
         <div class="duration">August 2023 - September 2027 (Expected)</div>
         <p><strong>Current Status:</strong> Undergraduate Student</p>
@@ -181,7 +181,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Career Highlights
-    st.header("🏆 Career Highlights")
+    st.header("Career Highlights")
     
     col1, col2, col3 = st.columns(3)
     
@@ -207,7 +207,7 @@ def main():
         )
     
     # Professional Philosophy
-    st.header("💡 Professional Philosophy")
+    st.header("Professional Philosophy")
     st.info("""
     **Commitment to Excellence:** I am committed to continuous learning, innovation, and delivering 
     high-impact, scalable analytical solutions in cross-functional team environments. My approach 
