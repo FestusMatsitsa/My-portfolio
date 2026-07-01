@@ -3,7 +3,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-st.set_page_config(page_title="Skills - Festus Bombo", page_icon="🛠️", layout="wide")
+st.set_page_config(page_title="Skills - Festus Bombo", page_icon="", layout="wide")
 
 # Custom CSS for dark mode
 st.markdown("""
@@ -85,11 +85,11 @@ def create_tools_treemap():
     return fig
 
 def main():
-    st.title("🛠️ Skills & Expertise")
+    st.title("Skills & Expertise")
     st.markdown("---")
     
     # Overview
-    st.header("📊 Skills Overview")
+    st.header("Skills Overview")
     
     col1, col2 = st.columns([1, 1])
     
@@ -100,17 +100,17 @@ def main():
         st.plotly_chart(create_tools_treemap(), use_container_width=True)
     
     # Detailed Skills Breakdown
-    st.header("🔧 Detailed Skills Breakdown")
+    st.header("Detailed Skills Breakdown")
     
     # Programming Languages
-    st.subheader("💻 Programming Languages")
+    st.subheader("Programming Languages")
     st.markdown("""
     <div class="skill-category">
         <h4>Core Languages</h4>
         <div>
-            <span class="tool-badge">🐍 Python (Advanced)</span>
-            <span class="tool-badge">📊 R (Intermediate)</span>
-            <span class="tool-badge">🗄️ SQL (Advanced)</span>
+            <span class="tool-badge">Python (Advanced)</span>
+            <span class="tool-badge">R (Intermediate)</span>
+            <span class="tool-badge">SQL (Advanced)</span>
         </div>
         <br>
         <p><strong>Python Libraries:</strong> Pandas, NumPy, Scikit-learn, TensorFlow, Matplotlib, Seaborn, Plotly, Scipy, Statsmodels</p>
@@ -120,7 +120,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Data Science & Analytics
-    st.subheader("🔬 Data Science & Analytics")
+    st.subheader("Data Science & Analytics")
     
     col1, col2 = st.columns(2)
     
@@ -167,17 +167,17 @@ def main():
         """)
     
     # Visualization & Reporting Tools
-    st.subheader("📈 Visualization & Reporting")
+    st.subheader("Visualization & Reporting")
     st.markdown("""
     <div class="skill-category">
         <h4>Visualization Tools</h4>
         <div>
-            <span class="tool-badge">📊 Tableau (Advanced)</span>
-            <span class="tool-badge">📈 Power BI (Advanced)</span>
-            <span class="tool-badge">🎨 Matplotlib (Expert)</span>
-            <span class="tool-badge">🌊 Seaborn (Expert)</span>
-            <span class="tool-badge">📱 Plotly (Advanced)</span>
-            <span class="tool-badge">📋 Excel (Advanced)</span>
+            <span class="tool-badge">Tableau (Advanced)</span>
+            <span class="tool-badge">Power BI (Advanced)</span>
+            <span class="tool-badge">Matplotlib (Expert)</span>
+            <span class="tool-badge">Seaborn (Expert)</span>
+            <span class="tool-badge">Plotly (Advanced)</span>
+            <span class="tool-badge">Excel (Advanced)</span>
         </div>
         <br>
         <p><strong>Specializations:</strong></p>
@@ -192,7 +192,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Professional Skills
-    st.subheader("🤝 Professional & Soft Skills")
+    st.subheader("Professional & Soft Skills")
     
     professional_skills = {
         "Communication": {"level": 92, "description": "Clear presentation of complex technical concepts to non-technical stakeholders"},
@@ -214,7 +214,7 @@ def main():
             st.caption(details['description'])
     
     # Certifications & Learning
-    st.header("🏆 Certifications & Continuous Learning")
+    st.header("Certifications & Continuous Learning")
     
     st.info("""
     **Commitment to Continuous Learning:**
@@ -227,7 +227,7 @@ def main():
     """)
     
     # Domain Expertise
-    st.header("🎯 Domain Expertise")
+    st.header("Domain Expertise")
     
     col1, col2 = st.columns(2)
     
@@ -252,7 +252,7 @@ def main():
         """)
     
     # Skills Assessment
-    st.header("📋 Self-Assessment Matrix")
+    st.header("Self-Assessment Matrix")
     
     assessment_data = {
         'Skill Area': ['Data Collection', 'Data Cleaning', 'EDA', 'Statistical Analysis', 
